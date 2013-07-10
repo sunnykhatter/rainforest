@@ -4,6 +4,10 @@ resources :sessions,:only => [:new, :create, :destroy]
 resources :products
 resources :users, :only => [:new, :create]
 root :to => 'products#index'
+  resources :products do
+    resources :reviews, :except => [:index]
+  end
+
 end
   # The priority is based upon order of creation:
   # first created -> highest priority.
